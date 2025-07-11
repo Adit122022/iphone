@@ -38,6 +38,7 @@ const Model = () => {
         transform: 'translateX(-100%)',
         duration: 2
       })
+       
     }
 
     if(size ==='small') {
@@ -51,6 +52,7 @@ const Model = () => {
   useGSAP(() => {
     gsap.to('#heading', { y: 0, opacity: 1 })
   }, []);
+
 
   return (
     <section className="common-padding">
@@ -103,15 +105,16 @@ const Model = () => {
             <div className="flex-center">
               <ul className="color-container">
                 {models.map((item, i) => (
-                  <li key={i} className="w-6 h-6 rounded-full mx-2 cursor-pointer" style={{ backgroundColor: item.color[0] }} onClick={() => setModel(item)} />
+                  <li key={i} className="w-6 h-6 rounded-full mx-2 cursor-pointer" style={{ backgroundColor: item.color[0] }} onClick={() =>{ setModel(item)}} />
                 ))}
               </ul>
 
               <button className="size-btn-container">
                 {sizes.map(({ label, value }) => (
+                
                   <span key={label} className="size-btn" style={{ backgroundColor: size === value ? 'white' : 'transparent', color: size === value ? 'black' : 'white'}} onClick={() => setSize(value)}>
                     {label}
-                  </span>
+                  </span> 
                 ))}
               </button>
             </div>
